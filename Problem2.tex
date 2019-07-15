@@ -11,35 +11,31 @@
 \subsection*{Express Requirements of function Arccos(x)}
 \subsection*{Functional Requirements (FR)}
 The functional requirements specify the function or tasks to be performed by the system.\\ 
-	\textbf{FR1: }The function should be able to accept an input value to give an output.\\
+	\textbf{FR1: }The function shall accept an input value to give an output.\\
 	\textbf{FR2: }The value to be entered by the user should be a real number between -1 and 1 and the output is between 0 and $\pi$\\
-	\textbf{FR3: }The arccos(x) function must return an angle whose cosine value is the input number.\\
-	\textbf{FR4: }The value generated as a result of the function is stored inside the memory.
-
+	\textbf{FR3: }The function shall return an angle whose cosine value is the input number.
+	\textbf{FR4: }The function shall return the angle in right triangle whose corresponding base hypotenuse ratio is give.
+	
 \subsection*{Performance Requirements (PR)}The performance requirements specify that the function is performed under some specified conditions.\\
 \textbf{PR1: }The response time for the function should be less than 2 seconds.\\
-	\textbf{PR2: }The resource utilization should be enough for the calculation.
+	\textbf{PR2: }It should handle the input that is outside the domain of the function.
 \subsection*{Usability Requirements (UR)}The requirement for user performance and satisfaction.\\
-	\textbf{UR1: }The software should be easy to use for the user. \\
-	\textbf{UR2: }The user should have knowledge of the function and its domain and co-domain.
+	\textbf{UR1: }The user should have knowledge of the function and its domain and co-domain.
+	\textbf{UR2: }The function should be easy to use for the user.
 \subsection*{Interface Requirements (IR)}Interface Requirements specify how the system interacts and the elements in a system interact with each other.\\
 \textbf{IR1: }User Interface Requirements –The user interacts with the software using the keypad for entering the value and the function on the screen. The user interface should confirm to standard GUI.\\
 \textbf{IR2: }Hardware Interface Requirements – The input device such as keyboard to input value and the monitor or display screen to output the result.\\
 \textbf{IR3: }Software Interface Requirements – The Java language should be used for performing the function of arcos(x).
-\subsection*{Design Constraints Requirements (DCR)}The requirements that limit the developer to follow a particular protocol to improve the design.\\
-	\textbf{DCR1: }Programming Language: Java\\
-	\textbf{DCR2: }System Language: English\\
-\textbf{DCR3: }Input Constraints: The input value should be real number between -1 and 1 and the output should be between 0 to $\pi$. 	
 
+\subsection*{Design Constraints Requirements (DCR)}The requirements that limit the developer to follow a particular protocol to improve the design.\\
+\textbf{DCR1: }Input Constraints: The input value should be real number between -1 and 1 and the output should be between 0 to $\pi$. It should not be any character or string.\\
+\textbf{DCR2: }Function Language: The function shall be implemented in Java Language.
 \subsection*{Non Functional Requirements (NFR)}They specify how a function is supposed to operate. It includes Quality Requirements and Human Factors Requirements
 \subsection*{Quality Requirements (QR)}It includes:\\
-	\textbf{Portability: }The software should be easily installed in other devices.\\
-	\textbf{Reusability: }The function can be reused any number of times depending on the user.\\
-\textbf{Reliability: }The result for the function should accurate and reliable.\\
-\textbf{Maintainability: }The software should be well maintained and should not crash.\\
-Security – The software should be secured from any virus.
+\textbf{Reusability: }The function shall be reused any number of times depending on the user.\\
+\textbf{Reliability: }The function shall provide accurate and reliable results.
 \subsection*{Human Factors Requirements (HFR)}It specifies the requirements of the Humans or Users with respect to the result of the function.\\ It includes:\\
-\textbf{Measure of usability: }The result of the function should be useful to the user or any stakeholder. The result must be accurate and must satisfy the user.\\
+\textbf{Measure of usability: }The result of the function should be useful to the user or any stakeholder. The result should be accurate and must satisfy the user.\\
 \textbf{Human Reliability: }The function should perform the task correctly. It should output the value in the co-domain of the function.
 
 \end{document}
