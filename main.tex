@@ -1,0 +1,275 @@
+\documentclass[12pt]{article}
+\usepackage[english]{babel}% Used for English Language
+\usepackage[utf8x]{inputenc}% Used for Page Numbering styles
+\usepackage[margin=1.0in]{geometry}% used for setting margin in page
+\usepackage{graphicx}%Used for importing images
+\usepackage[ruled,vlined]{algorithm2e,algpseudocode}% used to support Algorithm
+\usepackage{times} % Used for times new roman
+\include{javalisting}% Used to set algorithm language
+\usepackage{fancyhdr,graphicx,amsmath,amssymb}% 
+\graphicspath{{Images/}}% Used to locate images in folder
+\usepackage{hyperref}% Used for providing hyperlinks in the table of content
+
+\begin{document}
+\begin{titlepage}% begin the title page
+\center % To align everything in center
+
+\includegraphics[width=11cm, height=4cm]{1546548292347.jpg}\\% Used to import images
+\vspace{30mm}% Used for vertical spacing
+\textsc{\Huge SOEN 6011}\\[0.5cm] % Heading SOEN 6011
+\textsc{\Huge Software Engineering Processes}\\
+
+\vspace{30mm}
+\textsc{\huge Deliverable 1 }\\[0.5cm]
+\LARGE \textbf{ETERNITY : FUNCTIONS}\\[0.1cm]% Project Title 
+
+\vspace{30mm}
+\textsc{\textbf{\LARGE{Submitted By:}}}\\
+\LARGE{Prabhpreet Singh}\\ 
+\vspace{20mm}
+
+
+\vfill %Used to fill remaining page
+{\large \today}\\[1cm] %Used for Date
+\end{titlepage}
+\tableofcontents% Used for table of content
+\listoffigures% Used for list of figures
+\newpage % Used to continue on new page
+
+\section{Problem 1} % Used for main section 
+\subsection{Function arccos(x)} % Used for subsection
+The arccosine(x) function is the inverse of cosine of x. It returns the angle at which the cosine is x. It is called by the abbreviated form acos(x). $\arccos(x) = \cos^{-1}(x)$
+\subsection{Domain and Co-Domain of arcos(x)}
+\begin{equation} % Used to begin equation section
+y = \arccos(x)
+\end{equation}
+Domain: $-1\leq x \leq1$\\Range: $0 \leq y \leq \pi$
+\subsection{Graph of arccos(x)}
+    \begin{figure}[h]% Used for including image along with flow of document
+        \centering % Used for positioning of image
+        \includegraphics[width=7cm, height=7cm]{arccos-graph.png}
+        \caption{{Graph of arccos(x)}}
+        \label{fig:{Arccos(x)}}
+        %\label{Graph of arccos(x)} % Used to label the image
+    \end{figure}
+\subsection{Characteristics of arccos(x)}
+\begin{itemize} % Used to list items in bullets
+  \item The value of angle is the highest at -1, then it decreases and becomes zero at +1.
+  \item The arccosine(x) is a one-to-one function. Its range is limited to 180° because after that values repeat itself which violates one-to-one property.
+  \item The function can be used to calculate the base angle in a triangle by calculating base/hypotenuse to that angle if we know $cos^{-1}$ of that value.
+\end{itemize}
+
+\section{Problem 2}
+\subsection*{Express Requirements of function Arccos(x)}
+\subsection{Functional Requirements}
+\textbf{ID: FR}\\
+\textbf{Description: }The functional requirements specify the function or tasks to be performed by the system.\\ 
+	\textbf{FR1: }The function shall accept an input value to give an output.\\
+	\textbf{FR2: }The value to be entered by the user should be a real number between -1 to 1. The output returned is a real number between 0 to $\pi$\\
+	\textbf{FR3: }The function shall return an angle whose cosine value is the input number.\\
+	\textbf{FR4: }The function shall return the angle in right triangle whose corresponding base hypotenuse ratio is given.
+	
+\subsection{Performance Requirements}
+\textbf{ID: PR}\\
+\textbf{Description: }The performance requirements specify that the function is performed under some specified conditions.\\
+\textbf{PR1: }The response time for the function should be less than 2 seconds.\\
+	\textbf{PR2: }It should also be able to handle the exception when the entered input is outside the domain of the function.
+\subsection{Usability Requirements}
+\textbf{ID: UR}\\
+\textbf{Description: }The requirement for user performance and satisfaction.\\
+	\textbf{UR1: }The user should have knowledge of the function and its domain and co-domain.
+
+\subsection{Design Constraints Requirements}
+\textbf{ID: DCR}\\
+\textbf{Description: }The requirements that limit the developer to follow a particular protocol to improve the design.\\
+\textbf{DCR1: }Input Constraints: The input value should be a real number between -1 to 1 and the output should be between 0 to $\pi$. It should not be a character data type or a string.\\
+\textbf{DCR2: }Function Language: The function shall be implemented in Java Language.
+\subsection{Non Functional Requirements }
+\textbf{ID: NFR}\\
+\textbf{Description: }The Non Functional Requirements specify how a function is supposed to operate. It includes \textbf{Quality Requirements} and \textbf{Human Factors Requirements}.
+\begin{itemize}
+    \item \textbf{Quality Requirements}\\
+    \textbf{ID: QR}\\It includes:\\
+\textbf{Reusability\\ID: RU\\ }
+The function shall be reused any number of times depending on the user.\\
+\textbf{Reliability\\ID: RL\\}The function shall provide accurate and reliable results.
+\end{itemize}
+\begin{itemize}
+    \item \textbf{Human Factors Requirements}\\
+    \textbf{ID: HFR}\\It specifies the requirements of the Humans or Users with respect to the result of the function.\\ It includes:\\
+\textbf{Measure of usability\\ID: MUS\\}The result of the function should be useful to the user or any stakeholder. The result should be accurate and must satisfy the user.\\
+\textbf{Human Reliability\\ID: HRL\\}The function should perform the task correctly. The value of the output should be within the co-domain of the function.
+\end{itemize}
+\section{Problem 3}
+%\input{Chapters/03_Methodology_Algorithm_Theory}
+\subsection{PseudoCode For Implementation of Arccos Function}
+$cos^{-1}x = 3.1415926535/2 - sin^{-1}x$\\
+$sin^{-1}x = x + 1/2 * x^3/3 + 1/2 *3/4 *x^5/5 + 1/2 * 3/4 *5/6 * x^7/7 + ... \;where -1\leq x\leq1$
+$cos^{-1}x = 3.1415926535/2 -  x + 1/2 * x^3/3 + 1/2 *3/4 *x^5/5 + 1/2 * 3/4 *5/6 * x^7/7 + ... $
+
+\subsection{Technical Reasons For Choosing Algorithms}
+The Arccos(x) function is solved by using the Taylor Series Expansions of Inverse Cosine Function. The series is an infinite series with Geometric Progression. The two algorithms used for solving the problems are Iterative Approach and Recursive Approach.\\
+\newline
+\textbf{Iterative Approach:} This approach follows the top down method. In this we use loops for calculating the sum of infinite series. We can keep a note when the loop results into infinity and accordingly terminate iterations till that point. This approach gives close results up to fifteen iterations after which it gives no results.\\
+\newpage
+\textbf{Advantages:}
+\begin{itemize}
+    \item The iterative approach is easy to understand as it involves loops which carry out the summation process incrementally.
+    \item It uses less memory.
+\end{itemize}
+
+\textbf{Disadvantages:}
+\begin{itemize}
+    \item There are certain complex problems in which number of iterations are very large and so iteration is difficult to perform.
+    \item There can be many loops or nested loops involved in complex problems and the lines of code increases with it.
+    \item The result is less optimized and less accurate than the recursion result.
+\end{itemize}
+    
+\noindent
+\textbf{Recursive Approach:} This approach follows the bottom up method. In this we can use the function for performing the summation of the series. The function can call its own functions as many times. The result returned is added to the previous sum value every time a function is called. After some point we can check the values for infinity. We can call the recursive functions less than the infinity point.\\
+\newline
+\textbf{Advantages:}
+\begin{itemize}
+    \item Although Recursion is little difficult to understand, it can solve complex problems in an easy and elegant way.
+    \item In arccos(x) function implementation, we are performing summation for n=1 and later on calling the same function in itself for summation of remaining part.
+    \item It gives more accurate results than the iterative approach.
+    \item It reduces the lines of code for particular problem.
+\end{itemize}
+
+\textbf{Disadvantages:}
+\begin{itemize}
+    \item It uses more memory.
+    \item It becomes very complicated to solve problems. For example; when we are performing recursion, the control goes deeper into function and it becomes difficult to understand where the control is and how to get out of recursion to get results.
+    \item Extra counter value is used to keep track of recursive operation and return the result just before the result shows infinite value.
+\end{itemize}
+
+\subsection{Brief Description of the Algorithms}
+\textbf{Iterative Approach}\\
+The solution to the function arccos(x) is based on the Taylor Series Expansion of Inverse Cosine Function.\\
+$cos^{-1}x = 3.1415926535/2 -  x + 1/2 * x^3/3 + 1/2 *3/4 *x^5/5 + 1/2 * 3/4 *5/6 * x^7/7 + ... $ where $-1 \leq x \leq 1$\\
+This algorithm first does the summation of $1/2 * x^3/3 + 1/2 *3/4 *x^5/5 + 1/2 * 3/4 *5/6 * x^7/7 + ... $. It is in gerometric progression. In the numerator, it is going $1$, $1*3$, $1*3*5$. It is like the odd factorial, we calculate the odd factorial with while loop where the upper limit increases by 2 everytime.The same goes with the denominator. The denominator goes $2$, $2*4$, $2*4*6$ in its terms starting from n=1. So we calculate even factorial separately with while loop. The upper limit of the loop always increases by 2. The power of x is increasing from 3 with increment of 2 every time. We calculate power of x by using for loop and multiplying x with itself till the loop ends. The denominator is the number which is the number on the power to x. So the result of the one term is (Odd factorial*Power of X)/(Even Factorial * Number on the power to X). This gets added to next term with incremented N and so on.
+\begin{itemize}
+    \item Main loop of for starts with $N \gets 1$ which increments and ends at 15 because after that result is becoming infinite.
+    \item The power to X loop starts from 0 till 2N+1, and x is multiplied with itself to get X to power 2N+1.
+    \item The Odd Factorial starts with 1 in the product and factorial is calculated to less than 2N+1.So value is 1 in first term which increments to next odd number in next case.
+    \item The Even Factorial starts with in the product and factorial is calculated to less than 2N+1. So value in product is 2 in first case which increments on next cases to next even number.
+    \item The denominator is the same number 2N+1 which is incremented every time with N.
+    \item The value for each term starting from N=1 to 15 is added to the variable $asin$. The summation of all terms is stored in variable $asin$. The summation takes place for fifteen terms. 
+    \item This $asin$ value is subtracted from $3.1415926535/2 - x$ according to the formula to get the result which is stored in $acos$.
+    \item The result for this algorithm: $arccos(-1)=3.01518267$,$arccos(0)=1.570796$,$arccos(1)=0.1264099$
+    \item The result is less accurate than recusrive approach. The result has 0.04 of relative error in the value at extreme input values such as 1 and -1.
+\end{itemize}
+
+
+
+\begin{algorithm}
+\SetAlgoLined
+    \KwData{Integer x where $-1\leq x \leq1$}
+    \KwResult{Value of arccos(x)}
+    \textbf{function getArccos(x)\;}
+    $asin\gets 0$\;
+    $acos\gets 0$\;
+    \For{\texttt{$N \gets 1 \; to \; 15$}}
+         {
+            $EvenFactorial\gets 1$\;
+            $OddFactorial\gets 1$\;
+            $PowertoX\gets 1$\;
+            $Odd\gets 1$\;
+            $Even\gets 2$\;
+            \For{\texttt{$Power \gets 0 \; to \; 2N+1 $}}
+            {
+                $PowertoX\gets PowertoX * x$\; 
+            }
+            \EndFor
+            \While{$Odd < 2N+1$}
+            {
+                $OddFactorial \gets OddFactorial * Odd$\;
+            }
+            \While{$Even < 2N+1$}
+            {
+                $EvenFactorial \gets EvenFactorial * Even$\;
+            }
+            $asin \gets asin + (EvenFactorial * PowertoX)/(OddFactorial * 2N+1)$\;
+        }
+        \EndFor
+        $acos \gets 3.1415926535/2 - x - asin$\;
+        \Return $acos$\;
+        \textbf{end getArccos}
+\caption{Pseudocode for Arccos function: Iterative Approach}
+\label{algorithm1}
+\end{algorithm}
+\newpage
+\noindent
+\textbf{Recursive Approach}\\
+The same formula for Arccos(x) is used as before. $cos^{-1}x = 3.1415926535/2 -  x + 1/2 * x^3/3 + 1/2 *3/4 *x^5/5 + 1/2 * 3/4 *5/6 * x^7/7 + ... $ where $-1 \leq x \leq 1$\\
+The summation $1/2 *3/4 *x^5/5 + 1/2 * 3/4 *5/6 * x^7/7 + ...$ is taken separately. We find that in the numerator it is odd factorial such as $1$, $1*3$ , $1*3*5$. The denominator is having Even Factorial such as $2, 2*4, 2*4*6$. The numerator is multiplied by X to power of odd number starting from $X^3$ , $X^5$, $X^7$. The denominator is multiplied by odd number that is same as that on power of X, such as 3, 5 ,7.So we perform operations separately. As odd number here starts from 3, we take a counter starting from 3 which is incremented by 2 after the operations. We take the sum to be 0 at first.
+\begin{itemize}
+    \item In the function RecursiveArccos(x), The power to X is calculated by using for loop. In the for loop X is multiplied by itself in the loop to give $X^power$. Loop goes to less than the counter value. In first term, it goes from 0 to less than 3.
+    \item The Odd Factorial is calculated by using for loop. The product has value 1 initially which stores product of odd factorial. Loop goes from 1 to less than the counter value.
+    \item The Even Factorial is calculated by using for loop. The product has value 2 initially which stores product of even factorial. Loop goes from 2 to less than counter the value.
+    \item The sum is calculated by $(Odd Factorial*Power to X)/(Even Factorial * Counter)$.
+    \item For first sum is calculated for $x=-1$ as $(1*(-1)^3)/(2*3)$. The Counter is then incremented by 2.The flow goes to $sum = sum+RecursiveArccos(x)$ 
+    \item Same operations are carried out again.Counter value is 5. The Power to X is $X^5$. Odd factorial is $1*3$ and even factorial is $2*4$. The value of sum is calculated again and is equal to $((1*3)(-1)^5)/((2*4)*5)$. This value is added to previous sum value. The flow recursively goes to its own function again
+    \item The counter value 301 is taken because after this value goes to infinity.After this, the data flow is returned from all the functions to the main function.
+    \item The returned value is subtracted from $3.1415926535/2- x$ as mentioned in the formula and stored in the $result$ variable
+    \item The result for this algorithm $arccos(-1)=3.095514$, $arccos(1)=0.0460786$,$arccos(0)=1.57079632$
+    \item The result is more accurate than iterative approach. The result has 0.014 relative error at the extreme values such as 1 and -1.  
+\end{itemize}
+
+\begin{algorithm}
+\SetAlgoLined
+    \KwData{Integer x where $-1\leq x \leq1$}
+    \KwResult{Value of arccos(x)}
+    $sum\gets 0$\;
+    $counter\gets 3$\;
+    \textbf{function RecursiveArccos(x)\;}
+    
+    
+            $EvenFactorial\gets 1$\;
+            $OddFactorial\gets 1$\;
+            $PowertoX\gets 1$\;
+        
+            \For{\texttt{$Power \gets 0 \; to \; Counter $}}
+            {
+                $PowertoX\gets PowertoX * x$\; 
+            }
+            \EndFor
+            
+            \For{\texttt{$Odd \gets 1 \; to \; Counter $}}
+            {
+                $OddFactorial \gets OddFactorial * Odd$\;
+                $Odd \gets Odd + 2$\;
+            }
+            \EndFor
+           \For{\texttt{$Even \gets 1 \; to \; Counter $}}
+            {
+                $EvenFactorial \gets EvenFactorial * Even$\;
+                $Even \gets Even + 2$\;
+            }
+            \EndFor
+            $sum \gets (EvenFactorial * PowertoX)/(OddFactorial * Counter)$\;
+            $Counter \gets Counter +2$\; 
+            \eIf{$Counter \leq 301$}{
+            $sum \gets sum+ RecursiveArccos(x)$\;
+            \Return $sum$\;
+   }{
+   \Return $sum$\;
+  }
+  \textbf{end RecursiveArccos(x)}\\
+  $result \gets 3.1415926535/2- x - RecursiveArccos(x)$
+\caption{Pseudocode for Arccos function: Recursive Approach}
+\label{algorithm2}
+\end{algorithm}
+
+\newpage
+\section{References}
+\begin{itemize}
+    \item \url{http://mathworld.wolfram.com/InverseCosine.html}
+    \item \url{https://www.efunda.com/math/taylor_series/inverse_trig.cfm}
+    \item \url{https://www.mathopenref.com/arccos.html}
+    \item \url{https://tex.stackexchange.com/}
+    \item \url{https://stackoverflow.com/}
+    \item \url{https://www.overleaf.com/learn/latex/Creating_a_document_in_LaTeX}
+\end{itemize}
+\end{document}
+
